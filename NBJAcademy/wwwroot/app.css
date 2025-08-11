@@ -19,15 +19,15 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    padding: 2rem 0 1.5rem 0;
+    padding: 0.5rem 0 1rem 0;
     color: #fff;
     background: transparent;
     text-shadow: 0 2px 16px rgba(0,0,0,0.25);
 }
 
 .carousel-container {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 400px;
+    margin: 10px auto;
     background: #181818;
     border-radius: 18px;
     box-shadow: 0 4px 32px rgba(0,0,0,0.4);
@@ -50,10 +50,9 @@ body {
     background: rgba(24,24,24,0.95);
     border-top: 1px solid #222;
     box-shadow: 0 -2px 16px rgba(0,0,0,0.3);
-    padding: 20px 0;
     z-index: 1000;
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 a, .btn-link {
@@ -84,7 +83,7 @@ a, .btn-link {
     }
 
 .content {
-    padding-top: 1.5rem; /* Space for header */
+    padding-top: 1rem; /* Space for header */
     padding-bottom: 6rem; /* Space for footer */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
