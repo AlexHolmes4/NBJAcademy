@@ -1,0 +1,21 @@
+﻿<button class="menu-toggle" @onclick="ToggleMenu" aria-label="Toggle navigation">
+    <span class="menu-icon">&#9776;</span>
+</button>
+<nav class="nav-menu @(isMenuOpen ? "open" : "")">
+    <ul class="nav">
+        <li class="nav-item">
+            <NavLink class="nav-link" href="timetable" Match="NavLinkMatch.All">Timetable</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="findus">Find Us</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="contactus">Contact Us</NavLink>
+        </li>
+    </ul>
+</nav>
+
+@code {
+    private bool isMenuOpen = false;
+    private void ToggleMenu() => isMenuOpen = !isMenuOpen;
+}

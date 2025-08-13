@@ -11,4 +11,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.16" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\NewFolder\" />
+    <Folder Include="wwwroot\videos\" />
+  </ItemGroup>
+
 </Project>

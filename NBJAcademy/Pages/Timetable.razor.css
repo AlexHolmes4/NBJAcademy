@@ -1,0 +1,41 @@
+﻿
+.timetable-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem;
+    height: 100%
+}
+
+.day-section {
+    border-radius: 18px;
+    padding: 1rem 2.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid;
+    border-image: linear-gradient(130deg, #e50000, #4A4A4A, #fff) 1;
+    position: relative;
+    overflow: hidden;
+}
+
+    .day-section:hover {
+        transform: translateY(-6px) scale(1.05);
+    }
+
+    .day-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        z-index: 1;
+        position: relative;
+    }
+
+.class-time {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    z-index: 1;
+    position: relative;
+}

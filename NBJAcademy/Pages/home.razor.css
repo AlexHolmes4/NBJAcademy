@@ -1,0 +1,26 @@
+﻿.home-flex-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2rem auto;
+    max-width: 900px;
+}
+
+.home-flex-item {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.home-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(31,38,135,0.18);
+    object-fit: cover;
+}
