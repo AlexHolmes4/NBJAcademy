@@ -22,5 +22,12 @@
         <a href="https://www.instagram.com/nbjacademy" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:32px;height:32px;filter:invert(1);" />
         </a>
+        <span style="margin-left: 16px; color: #fff; font-size: 0.9em;">
+            &copy; @CurrentYear NBJ Academy. All rights reserved.
+        </span>
     </footer>
 </div>
+
+@code {
+    private int CurrentYear => DateTime.Now.Year;
+}
