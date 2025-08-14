@@ -2,8 +2,17 @@ body, html {
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: 0.01em;
     font-size: 1.05rem;
-    background: linear-gradient(135deg, #4A4A4A 0%, #232526 100%) !important;
     color: #4A4A4A;
+}
+
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(135deg, #4A4A4A 0%, #232526 100%);
 }
 
 h1, h2, h3, h4, h5 {
@@ -107,6 +116,7 @@ h1, h2, h3, h4, h5 {
         display: block;
     }
 }
+
 
 .page-container {
     min-width: 300px;

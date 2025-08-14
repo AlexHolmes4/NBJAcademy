@@ -1,6 +1,9 @@
 ﻿@page "/"
+@inject IJSRuntime JS
 
 <PageTitle>Home</PageTitle>
+
+<div class="page-background"/>
 
 <div class="home-flex-table">
     <div class="home-flex-item">
@@ -20,3 +23,12 @@
     </div>
 </div>
 
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("setParallax", ".page-background");
+        }
+    }
+}
