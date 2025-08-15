@@ -25,15 +25,16 @@
     object-fit: cover;
 }
 
-.page-background::before {
+/*This is a parallax background effect css to go with the JS commented out on the Home.razor page*/
+/*.page-background::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7); /* Adjust opacity for desired darkness */
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);*/ /* Adjust opacity for desired darkness */
+    /*z-index: 1;
     pointer-events: none;
 }
 .page-background {
@@ -48,5 +49,5 @@
     background-position: center;
     background-attachment: fixed;
     background-size: 300px 200px;
-}
+}*/
 
