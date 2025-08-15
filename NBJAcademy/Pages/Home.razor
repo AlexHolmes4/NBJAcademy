@@ -1,5 +1,6 @@
 ﻿@page "/"
-@inject IJSRuntime JS
+
+@* @inject IJSRuntime JS *@
 
 <PageTitle>Home</PageTitle>
 
@@ -23,6 +24,7 @@
     </div>
 </div>
 
+@* 
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -31,4 +33,9 @@
             await JS.InvokeVoidAsync("setParallax", ".page-background");
         }
     }
-}
+
+    public async ValueTask DisposeAsync()
+    {
+        await JS.InvokeVoidAsync("removeParallax");
+    }
+} *@

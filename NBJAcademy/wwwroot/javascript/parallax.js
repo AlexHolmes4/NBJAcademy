@@ -5,3 +5,10 @@
         el.style.backgroundPositionY = offset * 0.2 + "px";
     });
 }
+
+window.removeParallax = function () {
+    if (parallaxHandler) {
+        window.removeEventListener('scroll', parallaxHandler);
+        parallaxHandler = null;
+    }
+}
