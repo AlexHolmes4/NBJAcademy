@@ -1,11 +1,6 @@
 ﻿@page "/contactus"
 @using NBJAcademy.Services
 
-@* @inject ScreenSizeService ScreenSizeService *@
-@* 
-<p>Width: @ScreenSizeService.Dimensions.Width</p>
-<p>Height: @ScreenSizeService.Dimensions.Height</p>
- *@
 <PageTitle>Contact Us</PageTitle>
 
 <HeadContent>
@@ -76,17 +71,3 @@
         </div>
     </div>
 </div>
-
-
-@* 
-@code {
-    protected override void OnInitialized()
-    {
-        ScreenSizeService.OnScreenSizeChanged += StateHasChanged;
-    }
-
-    public void Dispose()
-    {
-        ScreenSizeService.OnScreenSizeChanged -= StateHasChanged;
-    }
-} *@
