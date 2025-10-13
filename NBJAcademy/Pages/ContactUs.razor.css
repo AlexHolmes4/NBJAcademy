@@ -22,102 +22,12 @@
     margin-bottom: 2rem;
 }
 
-/*.insta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #e50000;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-    .insta-link:hover {
-        color: #fff;
-        text-decoration: underline;
-    }*/
-
-.insta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #e50000;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.25rem;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(31,38,135,0.10);
-    transition: background 0.2s, color 0.2s;
-    border: none;
-}
-
-    .insta-link:hover {
-        background: #b80000;
-        color: #fff;
-        text-decoration: underline;
+@media (max-width: 600px) {
+    .contact-methods {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem; /* space between icons */
+        justify-content: center;
+        align-items: center;
     }
-
-.insta-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.whatsapp-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #25d366;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.25rem;
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(31,38,135,0.10);
-    transition: background 0.2s, color 0.2s;
-    border: none;
-}
-
-    .whatsapp-link:hover {
-        background: #1ebe5d;
-        color: #fff;
-        text-decoration: underline;
-    }
-
-.whatsapp-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.email-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #0072c6;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.25rem;
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(31,38,135,0.10);
-    transition: background 0.2s, color 0.2s;
-    border: none;
-}
-
-    .email-link:hover {
-        background: #005fa3;
-        color: #fff;
-        text-decoration: underline;
-    }
-
-.email-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

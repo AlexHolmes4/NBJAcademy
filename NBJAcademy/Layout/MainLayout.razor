@@ -1,4 +1,8 @@
-﻿@inherits LayoutComponentBase
+﻿@using NBJAcademy.Services
+@inherits LayoutComponentBase
+
+@* @inject ScreenSizeService ScreenSizeService *@
+
  <header>
     <div class="site-header d-flex align-items-center justify-content-between px-3" style="height: 64px;">
         <NavLink href="/" class="navbar-brand">
@@ -30,4 +34,11 @@
 
 @code {
     private int CurrentYear => DateTime.Now.Year;
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     await ScreenSizeService.RegisterResizeCallbackAsync();
+    //     ScreenSizeService.OnScreenSizeChanged += StateHasChanged;
+    //     await ScreenSizeService.UpdateScreenDimensions();
+    // }
 }

@@ -1,0 +1,18 @@
+<div>
+    <a href="@Link" class="contact-method @ContactMethodClass" aria-label="@Message" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon">
+            @if (Icon != null)
+            {
+                @Icon
+            }
+        </span>
+        <span class="contact-message">@Message</span>
+    </a>
+</div>
+
+@code {
+    [Parameter] public RenderFragment? Icon { get; set; }
+    [Parameter] public string Link { get; set; } = string.Empty;
+    [Parameter] public string Message { get; set; } = string.Empty;
+    [Parameter] public string? ContactMethodClass { get; set; }
+} 

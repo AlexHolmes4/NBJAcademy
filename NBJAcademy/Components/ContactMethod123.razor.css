@@ -1,0 +1,66 @@
+﻿
+.contact-method {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(31,38,135,0.10);
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    border-radius: 12px;
+    position: relative;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.contact-message {
+    display: inline;
+    white-space: nowrap;
+}
+
+.insta-link {
+    background: #e50000;
+}
+
+    .insta-link:hover {
+        background: #b80000;
+        text-decoration: underline;
+    }
+
+.whatsapp-link {
+    background: #25d366;
+}
+
+    .whatsapp-link:hover {
+        background: #1ebe5d;
+        text-decoration: underline;
+    }
+
+
+.email-link {
+    background: #0072c6;
+}
+
+    .email-link:hover {
+        background: #005fa3;
+        text-decoration: underline;
+    }
+
+@media (max-width: 600px) {
+    .contact-message {
+        display: none;
+    }
+
+    .contact-method {
+        padding: 0.5rem; 
+    }
+}
