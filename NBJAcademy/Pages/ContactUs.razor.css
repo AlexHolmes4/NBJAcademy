@@ -22,3 +22,12 @@
     margin-bottom: 2rem;
 }
 
+@media (max-width: 600px) {
+    .contact-methods {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem; /* space between icons */
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -15,19 +15,6 @@
     position: relative;
 }
 
-@media (max-width: 600px) {
-    .contact-message {
-        display: none;
-    }
-
-    .contact-method {
-        flex-direction: row;
-        padding: 0.5rem; /* Optional: reduce padding for small screens */
-        font-size: 1.5rem; /* Optional: make icons a bit larger */
-        min-width: unset;
-        max-width: unset;
-    }
-
 .contact-icon {
     display: flex;
     align-items: center;
@@ -67,3 +54,13 @@
         background: #005fa3;
         text-decoration: underline;
     }
+
+@media (max-width: 600px) {
+    .contact-message {
+        display: none;
+    }
+
+    .contact-method {
+        padding: 0.5rem; 
+    }
+}
