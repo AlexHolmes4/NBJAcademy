@@ -3,13 +3,11 @@
 
 @* @inject ScreenSizeService ScreenSizeService *@
 
- <header>
-    <div class="site-header d-flex align-items-center justify-content-between px-3" style="height: 64px;">
+ <header class="site-header">
         <NavLink href="/" class="navbar-brand">
             <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" style="height:48px;" />
         </NavLink>
         <NavMenu />
-    </div>
 </header>
 
 <div class="page">
@@ -21,16 +19,14 @@
             </ErrorBoundary>
         </article>
     </main>
-
-    <footer class="social-footer">
-        <a href="https://www.instagram.com/nbjacademy" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:32px;height:32px;filter:invert(1);" />
-        </a>
-        <span style="margin-left: 16px; color: #fff; font-size: 0.9em;">
-            &copy; @CurrentYear NBJ Academy. All rights reserved.
-        </span>
-    </footer>
+        
 </div>
+
+<footer class="social-footer">  
+    <span style="margin-left: 16px; color: #fff; font-size: 0.9em;">
+        &copy; @CurrentYear NBJ Academy. All rights reserved.
+    </span>
+</footer>
 
 @code {
     private int CurrentYear => DateTime.Now.Year;

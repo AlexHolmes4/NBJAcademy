@@ -3,6 +3,31 @@ body, html {
     letter-spacing: 0.01em;
     font-size: 1.05rem;
     color: #4A4A4A;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: calc(100vh - 65px - 34px); /* header + footer */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.content {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .page-background {
@@ -21,6 +46,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    width: 100%;
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
@@ -126,15 +156,25 @@ h1, h2, h3, h4, h5 {
     background: #181818;
     border-radius: 18px;
     box-shadow: 0 4px 32px rgba(0,0,0,0.4);
-    overflow: hidden;
     border: 1px solid #222;
-    padding: 0;
+    /*padding: 2rem 0;*/
     background-color: #000000;
     color: #fff;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+@media (max-height: 600px) {
+    .page-container {
+        width: 100vw;
+        height: 100vh;
+    }
 }
 
 
 .social-footer {
+    height: 30px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -142,11 +182,11 @@ h1, h2, h3, h4, h5 {
     bottom: 0;
     width: 100%;
     background: rgba(24,24,24,0.95);
-    border-top: 1px solid #222;
     box-shadow: 0 -2px 16px rgba(0,0,0,0.3);
     z-index: 1000;
     margin: 0;
-    padding: 10px 0;
+    border-top: 1px solid #222;
+    padding: 2px 0;
 }
 
 a, .btn-link {
@@ -175,13 +215,6 @@ a, .btn-link {
         color: #fff;
         text-decoration: underline;
     }
-
-.content {
-    padding-top: 1rem; /* Space for header */
-    padding-bottom: 6rem; /* Space for footer */
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
 
 h1:focus {
     outline: none;

@@ -12,8 +12,8 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin: 2rem;
     height: 100%;
+    overflow-y: auto;
 }
 
 .contact-block {
@@ -27,8 +27,6 @@
     gap: 1rem;
     min-width: 300px;
     max-width: 500px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 
 @media (max-width: 600px) {
