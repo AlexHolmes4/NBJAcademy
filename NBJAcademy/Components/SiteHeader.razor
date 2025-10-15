@@ -1,0 +1,19 @@
+﻿<header class="site-header">
+    <NavLink href="/" Match="NavLinkMatch.All" class="navbar-brand">
+        <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" />
+    </NavLink>
+    <button class="hamburger" @onclick="ToggleMenu" aria-label="Toggle navigation">
+        &#9776;
+    </button>
+    <nav class="nav-menu @(menuOpen ? "open" : "")">
+        <NavLink class="nav-menu-item" href="timetable">Timetable</NavLink>
+        <NavLink class="nav-menu-item" href="findus">Find Us</NavLink>
+        <NavLink class="nav-menu-item" href="contactus">Contact Us</NavLink>
+    </nav>
+</header>
+
+@code {
+    private bool menuOpen = false;
+
+    private void ToggleMenu() => menuOpen = !menuOpen;
+}

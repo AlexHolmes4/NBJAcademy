@@ -1,40 +1,12 @@
 ﻿@using NBJAcademy.Services
 @inherits LayoutComponentBase
 
-@* @inject ScreenSizeService ScreenSizeService *@
-
- <header class="site-header">
-        <NavLink href="/" class="navbar-brand">
-            <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" style="height:48px;" />
-        </NavLink>
-        <NavMenu />
-</header>
-
-<div class="page">
-
-    <main>
-        <article class="content">
-            <ErrorBoundary>
-                @Body
-            </ErrorBoundary>
-        </article>
+<div class="flex-layout">
+    <SiteHeader />
+    <main class="site-main">
+        <ErrorBoundary>
+            @Body
+        </ErrorBoundary>
     </main>
-        
+    <SiteFooter />
 </div>
-
-<footer class="social-footer">  
-    <span style="margin-left: 16px; color: #fff; font-size: 0.9em;">
-        &copy; @CurrentYear NBJ Academy. All rights reserved.
-    </span>
-</footer>
-
-@code {
-    private int CurrentYear => DateTime.Now.Year;
-
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     await ScreenSizeService.RegisterResizeCallbackAsync();
-    //     ScreenSizeService.OnScreenSizeChanged += StateHasChanged;
-    //     await ScreenSizeService.UpdateScreenDimensions();
-    // }
-}
