@@ -2,15 +2,26 @@
     <NavLink href="/" Match="NavLinkMatch.All" class="navbar-brand">
         <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" />
     </NavLink>
+    <nav class="nav-menu">
+        <a class="nav-menu-item" href="timetable">Timetable</a>
+        <a class="nav-menu-item" href="findus">Find Us</a>
+        <a class="nav-menu-item" href="contactus">Contact Us</a>
+    </nav>
     <button class="hamburger" @onclick="ToggleMenu" aria-label="Toggle navigation">
         &#9776;
     </button>
-    <nav class="nav-menu @(menuOpen ? "open" : "")">
-        <NavLink class="nav-menu-item" href="timetable">Timetable</NavLink>
-        <NavLink class="nav-menu-item" href="findus">Find Us</NavLink>
-        <NavLink class="nav-menu-item" href="contactus">Contact Us</NavLink>
-    </nav>
 </header>
+
+@if (menuOpen)
+{
+    <div class="menu-overlay slide-down">
+        <nav class="overlay-nav">
+            <a class="overlay-menu-item" href="timetable" @onclick="ToggleMenu">Timetable</a>
+            <a class="overlay-menu-item" href="findus" @onclick="ToggleMenu">Find Us</a>
+            <a class="overlay-menu-item" href="contactus" @onclick="ToggleMenu">Contact Us</a>
+        </nav>
+    </div>
+}
 
 @code {
     private bool menuOpen = false;
