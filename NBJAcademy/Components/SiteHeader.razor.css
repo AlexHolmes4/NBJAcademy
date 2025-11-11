@@ -4,12 +4,37 @@
     justify-content: space-between;
     background: #1A1A1A;
     color: #fff;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 1rem;
     text-align: center;
+    z-index: 1001; /* Ensure header is above overlay */
 }
+
     .site-header .navbar-brand {
         height: 40px;
+    }
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-menu-item {
+    color: #fff !important;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: color 0.2s;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+}
+
+    .nav-menu-item:hover,
+    .nav-menu-item.active {
+        color: #e50000 !important;
+        text-decoration: underline !important;
     }
 
 .hamburger {
@@ -21,44 +46,65 @@
     display: none; /* Hide by default, show on small screens*/
 }
 
-.nav-menu {
-    display: flex; /* Show nav menu by default */
-    gap: 1rem;
-}
-
-    .nav-menu .nav-link {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #fff;
-        line-height: 1.2;
-    }
-
-/*.nav-menu-item {
-    color: #fff;
-    text-decoration: none;*/
-    /*padding: 0.5rem 1rem;*/
-/*}*/
-
 /* Mobile styles: less than 700px */
 @media (max-width: 699px) {
+    .nav-menu {
+        display: none;
+    }
+
     .hamburger {
         display: block;
     }
+}
 
-    .nav-menu {
-        display: none; /* Hide nav menu by default on mobile */
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #444;
-        padding: 0.5rem 1rem;
-        z-index: 10;
-        box-sizing: border-box; /*Include padding in width*/
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(24,24,24,0.98);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Below header */
+}
+
+.overlay-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.overlay-menu-item {
+    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: color 0.2s;
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+}
+
+    .overlay-menu-item:hover,
+    .overlay-menu-item.active {
+        color: #e50000 !important;
+        text-decoration: underline !important;
     }
 
-        .nav-menu.open {
-            display: flex; /* Show nav menu when toggled */
-        }
+@keyframes slideDownOverlay {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.menu-overlay.slide-down {
+    animation: slideDownOverlay 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }

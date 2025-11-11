@@ -1,5 +1,5 @@
 body, html {
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Montserrat', Arial, sans-serif;
     letter-spacing: 0.01em;
     font-size: 1.05rem;
     margin: 0;
@@ -13,6 +13,7 @@ body, html {
 }
 
 .site-main {
+    margin-top: 84px; /* adjust to header height */
     flex: 1 1 auto;
     padding: 2rem;
     display: flex;
