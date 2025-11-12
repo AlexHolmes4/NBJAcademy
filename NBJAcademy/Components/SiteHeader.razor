@@ -1,11 +1,14 @@
-﻿<header class="site-header">
+﻿@implements IDisposable
+@inject NavigationManager Navigation
+
+<header class="site-header">
     <NavLink href="/" Match="NavLinkMatch.All" class="navbar-brand">
         <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" />
     </NavLink>
     <nav class="nav-menu">
-        <a class="nav-menu-item" href="timetable">Timetable</a>
-        <a class="nav-menu-item" href="findus">Find Us</a>
-        <a class="nav-menu-item" href="contactus">Contact Us</a>
+        <a class="nav-menu-item @(IsActive("/timetable") ? "active" : "")" href="/timetable">Timetable</a>
+        <a class="nav-menu-item @(IsActive("/findus") ? "active" : "")" href="/findus">Find Us</a>
+        <a class="nav-menu-item @(IsActive("/contactus") ? "active" : "")" href="/contactus">Contact Us</a>
     </nav>
     <button class="hamburger" @onclick="ToggleMenu" aria-label="Toggle navigation">
         &#9776;
@@ -16,9 +19,9 @@
 {
     <div class="menu-overlay slide-down">
         <nav class="overlay-nav">
-            <a class="overlay-menu-item" href="timetable" @onclick="ToggleMenu">Timetable</a>
-            <a class="overlay-menu-item" href="findus" @onclick="ToggleMenu">Find Us</a>
-            <a class="overlay-menu-item" href="contactus" @onclick="ToggleMenu">Contact Us</a>
+            <a class="overlay-menu-item" href="/timetable" @onclick="ToggleMenu">Timetable</a>
+            <a class="overlay-menu-item" href="/findus" @onclick="ToggleMenu">Find Us</a>
+            <a class="overlay-menu-item" href="/contactus" @onclick="ToggleMenu">Contact Us</a>
         </nav>
     </div>
 }
@@ -27,4 +30,25 @@
     private bool menuOpen = false;
 
     private void ToggleMenu() => menuOpen = !menuOpen;
+
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= OnLocationChanged;
+    }
+
+    private bool IsActive(string href)
+    {
+        var uri = "/" + Navigation.ToBaseRelativePath(Navigation.Uri).TrimEnd('/');
+        return uri.Equals(href, StringComparison.OrdinalIgnoreCase);
+    }
 }

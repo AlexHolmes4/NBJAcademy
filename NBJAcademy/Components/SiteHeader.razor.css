@@ -20,21 +20,22 @@
 .nav-menu {
     display: flex;
     gap: 1.5rem;
+    margin-right: 2rem;
 }
 
 .nav-menu-item {
-    color: #fff !important;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-decoration: none !important;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
     transition: color 0.2s;
     font-family: 'Montserrat', 'Inter', Arial, sans-serif;
 }
 
     .nav-menu-item:hover,
     .nav-menu-item.active {
-        color: #e50000 !important;
-        text-decoration: underline !important;
+        font-size: 1.2rem;
+        font-weight: 700;
     }
 
 .hamburger {
@@ -79,7 +80,7 @@
 }
 
 .overlay-menu-item {
-    color: #fff !important;
+    color: #fff;
     font-size: 2.5rem;
     font-weight: 700;
     text-decoration: none !important;
@@ -89,7 +90,6 @@
 
     .overlay-menu-item:hover,
     .overlay-menu-item.active {
-        color: #e50000 !important;
         text-decoration: underline !important;
     }
 
