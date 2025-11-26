@@ -2,7 +2,7 @@
 @inject NavigationManager Navigation
 
 <header class="site-header">
-    <NavLink href="/" Match="NavLinkMatch.All" class="navbar-brand">
+    <NavLink href="/" Match="NavLinkMatch.All" class="navbar-brand" @onclick="CloseMenu">
         <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" />
     </NavLink>
     <nav class="nav-menu">
@@ -19,9 +19,9 @@
 {
     <div class="menu-overlay slide-down">
         <nav class="overlay-nav">
-            <a class="overlay-menu-item" href="/timetable" @onclick="ToggleMenu">Timetable</a>
-            <a class="overlay-menu-item" href="/findus" @onclick="ToggleMenu">Find Us</a>
-            <a class="overlay-menu-item" href="/contactus" @onclick="ToggleMenu">Contact Us</a>
+            <a class="overlay-menu-item" href="/timetable" @onclick="CloseMenu">Timetable</a>
+            <a class="overlay-menu-item" href="/findus" @onclick="CloseMenu">Find Us</a>
+            <a class="overlay-menu-item" href="/contactus" @onclick="CloseMenu">Contact Us</a>
         </nav>
     </div>
 }
@@ -30,6 +30,7 @@
     private bool menuOpen = false;
 
     private void ToggleMenu() => menuOpen = !menuOpen;
+    private void CloseMenu() => menuOpen = false;
 
     protected override void OnInitialized()
     {
