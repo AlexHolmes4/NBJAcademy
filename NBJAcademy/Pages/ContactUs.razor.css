@@ -1,10 +1,9 @@
-﻿.contactus-content {
+﻿.contactus-container {
     background: #1A1A1A;
     color: #fff;
-    max-width: 500px;
+    max-width: 800px;
     width: 100%;
     margin: 3rem auto;
-    padding: 2rem 1rem;
     border-radius: 16px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.15);
     display: flex;
@@ -12,6 +11,14 @@
     align-items: center;
     gap: 1.5rem;
     box-sizing: border-box;
+}
+
+.contactus-content {
+    display: flex;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .contact-methods {
