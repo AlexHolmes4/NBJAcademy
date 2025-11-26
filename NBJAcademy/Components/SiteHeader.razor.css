@@ -93,6 +93,22 @@
         text-decoration: underline !important;
     }
 
+/* When viewport height is small, start the overlay content below the fixed header */
+@media (max-height: 420px) {
+    .menu-overlay {
+        justify-content: flex-start; 
+        padding-top: calc(64px + 1rem); 
+    }
+
+    .overlay-nav {
+        gap: 1.25rem; 
+    }
+
+    .overlay-menu-item {
+        font-size: 2rem; 
+    }
+}
+
 @keyframes slideDownOverlay {
     from {
         transform: translateY(-100%);
