@@ -1,59 +1,163 @@
-﻿.timetable-content {
-    background: #1A1A1A;
-    color: #fff;
-    max-width: 600px;
+.timetable-container {
+    max-width: 900px;
     width: 100%;
-    margin: 3rem auto;
+    margin: 0 auto;
     padding: 2rem 1rem;
+}
+
+.timetable-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 12px rgba(229, 0, 0, 0.5);
+}
+
+.timetable-table-wrapper {
+    background: #1A1A1A;
     border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    gap: 2rem;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    overflow-x: auto;
 }
 
-.day-section {
-    background: #232323;
-    border-radius: 18px;
-    padding: 1rem 2.5rem;
-    border: 2px solid;
-    border-image: linear-gradient(130deg, #e50000, #4A4A4A, #fff) 1;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.10);
+.timetable-table {
     width: 100%;
-    max-width: 400px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.15s;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: #fff;
 }
 
-    .day-section:hover {
-        transform: translateY(-6px) scale(1.05);
-    }
+.timetable-table thead {
+    background: linear-gradient(135deg, #e50000 0%, #b00000 100%);
+}
 
-    .day-section h2 {
-        font-size: 1.3rem;
-        margin-bottom: 0.4rem;
-        font-weight: 500;
-        letter-spacing: 0.03em;
-    }
-
-.class-time {
-    margin-left: 1rem;
-    margin-bottom: 0.5rem;
+.timetable-table thead th {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
     font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
 }
 
-@media (max-width: 600px) {
-    .timetable-content {
-        margin: 1rem 0.5rem;
-        padding: 1rem 0.5rem;
-        max-width: 100%;
+.timetable-table thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.timetable-table thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.timetable-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.timetable-table tbody tr:hover {
+    background: #2A2A2A;
+}
+
+.timetable-table tbody tr:nth-child(4n-3),
+.timetable-table tbody tr:nth-child(4n-2) {
+    background: #232323;
+}
+
+.timetable-table tbody tr:nth-child(4n-1),
+.timetable-table tbody tr:nth-child(4n) {
+    background: #1E1E1E;
+}
+
+.timetable-table tbody td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #333;
+}
+
+.day-cell {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #e50000;
+    vertical-align: middle;
+    border-right: 3px solid #e50000;
+}
+
+.class-type {
+    font-weight: 500;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.class-type::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.class-type.kids::before {
+    background: #4fc3f7;
+    box-shadow: 0 0 8px #4fc3f7;
+}
+
+.class-type.adults::before {
+    background: #e50000;
+    box-shadow: 0 0 8px #e50000;
+}
+
+.class-type.warriors::before {
+    background: #ffa726;
+    box-shadow: 0 0 8px #ffa726;
+}
+
+.age-badge {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.time-cell {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+@media (max-width: 768px) {
+    .timetable-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
-    .day-section {
+    .timetable-table-wrapper {
         padding: 1rem;
-        max-width: 100%;
+    }
+
+    .timetable-table thead th,
+    .timetable-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .day-cell {
+        font-size: 1rem;
+    }
+
+    .class-type {
+        padding-left: 0;
+    }
+
+        .class-type::before {
+            display: none; /* remove the dot on small screens */
+            content: none;
+        }
+
+    .time-cell {
+        font-size: 0.85rem;
     }
 }
