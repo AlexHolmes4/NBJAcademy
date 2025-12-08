@@ -1,6 +1,6 @@
 ﻿.contactus-container {
-    background: #1A1A1A;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-secondary);
     max-width: 800px;
     width: 100%;
     margin: 3rem auto;

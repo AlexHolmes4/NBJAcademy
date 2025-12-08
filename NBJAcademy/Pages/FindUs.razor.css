@@ -1,6 +1,6 @@
 ﻿.findus-container {
-    background: #1A1A1A;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-secondary);
     max-width: 800px;
     width: 100%;
     margin: 3rem auto;
@@ -11,6 +11,7 @@
     align-items: center;
     gap: 1.5rem;
     box-sizing: border-box;
+    padding: 3rem 1rem;
 }
 
 @media (max-width: 700px) {
@@ -41,6 +42,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
     .map-container iframe {
@@ -51,3 +54,38 @@
         border: none;
         background: #222;
     }
+
+.map-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4rem;
+    height: 4rem;
+}
+
+.spinner-background {
+    fill: none;
+    stroke: rgba(255,255,255,0.2); /* faint circle */
+    stroke-width: 4;
+}
+
+.spinner-arc {
+    fill: none;
+    stroke: var(--color-secondary);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 90 150; /* 90 visible, 150 invisible → partial arc */
+    transform-origin: 50% 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

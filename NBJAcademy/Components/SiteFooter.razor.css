@@ -1,6 +1,6 @@
 ﻿.site-footer {
-    background: #1A1A1A;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-secondary);
     padding: 1rem;
     text-align: center;
 }

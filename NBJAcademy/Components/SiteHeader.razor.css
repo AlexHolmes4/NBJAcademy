@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1A1A1A;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-secondary);
     position: fixed;
     top: 0;
     left: 0;
@@ -24,7 +24,7 @@
 }
 
 .nav-menu-item {
-    color: #fff;
+    color: var(--color-secondary);
     font-size: 1rem;
     font-weight: 400;
     text-decoration: none;
@@ -42,7 +42,7 @@
     font-size: 2rem;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--color-secondary);
     cursor: pointer;
     display: none; /* Hide by default, show on small screens*/
 }
@@ -80,7 +80,7 @@
 }
 
 .overlay-menu-item {
-    color: #fff;
+    color: var(--color-secondary);
     font-size: 2.5rem;
     font-weight: 700;
     text-decoration: none !important;
