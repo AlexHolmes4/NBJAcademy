@@ -1,6 +1,8 @@
-# NBJ Academy — Brazilian Jiu Jitsu Website
+# NBJ Academy â€” Brazilian Jiu Jitsu Website
 
-A modern, fast, and maintainable website built for NBJ Academy using Blazor WebAssembly on .NET 8. The site highlights the academy’s culture, classes, and schedule while delivering a clean, responsive experience across devices.
+The website is found here - [Nbjacademy](https://www.nbjacademy.com.au)
+
+A modern, fast, and maintainable website built for NBJ Academy using Blazor WebAssembly on .NET 8. The site highlights the academyâ€™s culture, classes, and schedule while delivering a clean, responsive experience across devices.
 
 ## Live Experience
 
@@ -24,14 +26,14 @@ A modern, fast, and maintainable website built for NBJ Academy using Blazor WebA
 
 ## Key Pages & Components
 
-- `Pages/Home.razor` — Hero, intro, highlights, call-to-action.
-- `Pages/AboutUs.razor` — Academy values, coaching philosophy, community focus.
-- `Pages/Timetable.razor` — Clear weekly schedule with responsive layout.
-- `Pages/Gallery.razor` — Visual showcase with performant image loading.
-- `Pages/FindUs.razor` — Location, access, and contact information.
-- `Pages/ContactUs.razor` — Contact form and direct reach options.
-- `Components/SiteHeader.razor` — Clean, persistent navigation across the app.
-- `Components/Carousel.razor` — Visual slider for promotions or featured content.
+- `Pages/Home.razor` â€” Hero, intro, highlights, call-to-action.
+- `Pages/AboutUs.razor` â€” Academy values, coaching philosophy, community focus.
+- `Pages/Timetable.razor` â€” Clear weekly schedule with responsive layout.
+- `Pages/Gallery.razor` â€” Visual showcase with performant image loading.
+- `Pages/FindUs.razor` â€” Location, access, and contact information.
+- `Pages/ContactUs.razor` â€” Contact form and direct reach options.
+- `Components/SiteHeader.razor` â€” Clean, persistent navigation across the app.
+- `Components/Carousel.razor` â€” Visual slider for promotions or featured content.
 
 ## Design Decisions
 
