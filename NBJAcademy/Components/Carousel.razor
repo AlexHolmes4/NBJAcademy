@@ -1,0 +1,43 @@
+﻿<div class="highlights-carousel">
+    <button class="carousel-nav prev" @onclick="PrevSlide" aria-label="Previous">‹</button>
+
+    <div class="carousel-track" style="--index:@currentSlide">
+        @foreach (var slide in HighlightSlides)
+        {
+            <div class="carousel-slide">
+                <img src="@slide.Image" alt="@slide.Alt" loading="lazy" />
+                <div class="slide-caption">
+                    <h3>@slide.Title</h3>
+                    <p>@slide.Text</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="carousel-nav next" @onclick="NextSlide" aria-label="Next">›</button>
+</div>
+
+<div class="carousel-dots">
+    @for (var i = 0; i < HighlightSlides.Count; i++)
+    {
+        <button class="dot @(i == currentSlide ? "active" : "")" @onclick="() => GoToSlide(i)" aria-label="Go to slide @(i + 1)"></button>
+    }
+</div>
+
+@code {
+    private int currentSlide = 0;
+
+    private readonly List<HighlightSlide> HighlightSlides = new()
+    {
+        new("images/carousel/carousel-1.jpeg", "Training Mats", "Inclusive Coaching", "Adaptive methods for all, including ASD and ADHD."),
+        new("images/carousel/carousel-2.jpeg", "Kids Class", "Family-Focused", "Welcoming environment with support spaces."),
+        new("images/carousel/carousel-3.jpeg", "Adult Training", "Experienced Instruction", "15+ years of BJJ, black belt 5+ years."),
+        new("images/carousel/carousel-4.jpeg", "NBJ Team", "Community", "Respect, discipline, and purpose on and off the mats.")
+    };
+
+    private void NextSlide() => currentSlide = (currentSlide + 1) % HighlightSlides.Count;
+    private void PrevSlide() => currentSlide = (currentSlide == 0 ? HighlightSlides.Count - 1 : currentSlide - 1);
+    private void GoToSlide(int i) => currentSlide = i;
+
+    private record HighlightSlide(string Image, string Alt, string Title, string Text);
+}

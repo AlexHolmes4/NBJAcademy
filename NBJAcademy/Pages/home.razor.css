@@ -20,6 +20,12 @@
 .home-hero {
     text-align: center;
     padding: 3rem 1.5rem;
+
+    /* Background image + transparency overlay */
+    background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/gi.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
     .home-hero h1 {
@@ -69,46 +75,36 @@
     border-bottom: 3px solid var(--color-secondary);
 }
 
-/* Highlights grid */
-.highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-}
-
-.highlight-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 1rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-    .highlight-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
-
-    .highlight-card h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.1rem;
-        margin: 0 0 0.5rem 0;
-        color: var(--color-secondary);
-    }
-
-    .highlight-card p {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.98rem;
-        margin: 0;
-    }
-
-/* Coach + Facilities */
 .home-coach p,
 .home-facilities ul {
     font-family: 'Inter', sans-serif;
     font-size: 1.05rem;
     line-height: 1.7;
 }
+
+.home-coach__content {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* text | image */
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-coach__text h2 {
+    margin-top: 0;
+}
+
+.home-coach__image {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .home-coach__image img {
+        width: 100%;
+        max-width: 680px; /* tune to your portrait width */
+        height: auto;
+        object-fit: contain; /* preserves transparency */
+        filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25)); /* subtle depth */
+    }
 
 .link-button {
     display: inline-block;
@@ -163,7 +159,6 @@
         box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         background: rgba(255,255,255,0.16);
     }
-
 /* Social */
 .home-social .link-button {
     background: var(--color-secondary);
@@ -181,11 +176,22 @@
         padding: 2rem 1rem;
     }
 
-    .highlights-grid {
+    .home-coach__content {
         grid-template-columns: 1fr;
     }
+
+    .home-coach__image {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+        .home-coach__image img {
+            max-width: 280px;
+
+        }
 
     .links-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
 }
+

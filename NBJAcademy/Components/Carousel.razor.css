@@ -1,0 +1,142 @@
+﻿
+/* Carousel container */
+.highlights-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    background: var(--color-primary);
+}
+
+/* Track */
+.carousel-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    transform: translateX(calc(var(--index, 0) * -100%));
+    transition: transform 0.4s ease;
+}
+
+/* Slide and image */
+.carousel-slide {
+    display: grid;
+    grid-template-rows: auto min-content; /* image then caption */
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px; /* keeps a coherent card look */
+    background: var(--color-primary);
+}
+
+    .carousel-slide img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    /* 3) Per-slide control using :nth-child
+   Adjust percentages per slide until the head is visible. */
+    .carousel-slide:nth-child(1) img {
+        object-position: center 20%;
+    }
+
+    .carousel-slide:nth-child(2) img {
+        object-position: center 40%;
+    }
+
+    .carousel-slide:nth-child(3) img {
+        object-position: center 60%;
+    }
+
+    .carousel-slide:nth-child(4) img {
+        object-position: center 15%;
+    }
+
+/* Caption section below the image */
+.slide-caption {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 0.9rem 1rem;
+    border-top: 2px solid rgba(255,255,255,0.15);
+    display: grid;
+    row-gap: 0.35rem;
+}
+
+    .slide-caption h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-secondary);
+    }
+
+    .slide-caption p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.3;
+        opacity: 0.95;
+    }
+
+/* Navigation */
+.carousel-nav {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.35);
+    color: var(--color-secondary);
+    border: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+    .carousel-nav:hover,
+    .carousel-nav:focus-visible {
+        background: rgba(255, 255, 255, 0.5); /* was 0.3 → clearer */
+        outline: none;
+    }
+
+    .carousel-nav.prev {
+        left: 0.75rem;
+    }
+
+    .carousel-nav.next {
+        right: 0.75rem;
+    }
+
+/* Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0 0;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    border: none;
+    cursor: pointer;
+}
+
+    .dot.active {
+        background: var(--color-secondary);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-slide img {
+        height: 240px;
+    }
+
+    .slide-caption h3 {
+        font-size: 1.1rem;
+    }
+
+    .slide-caption p {
+        font-size: 0.95rem;
+    }
+}
