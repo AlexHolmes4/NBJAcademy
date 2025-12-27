@@ -6,9 +6,10 @@
         <img src="images/nbjlogotransparant.png" alt="NBJ Academy Logo" class="navbar-brand" />
     </NavLink>
     <nav class="nav-menu">
+        <a class="nav-menu-item @(IsActive("/about-us") ? "active" : "")" href="/about-us">About Us</a>
         <a class="nav-menu-item @(IsActive("/timetable") ? "active" : "")" href="/timetable">Timetable</a>
-        <a class="nav-menu-item @(IsActive("/findus") ? "active" : "")" href="/findus">Find Us</a>
-        <a class="nav-menu-item @(IsActive("/contactus") ? "active" : "")" href="/contactus">Contact Us</a>
+        <a class="nav-menu-item @(IsActive("/find-us") ? "active" : "")" href="/find-us">Find Us</a>
+        <a class="nav-menu-item @(IsActive("/contact-us") ? "active" : "")" href="/contact-us">Contact Us</a>
     </nav>
     <button class="hamburger" @onclick="ToggleMenu" aria-label="Toggle navigation">
         &#9776;
@@ -19,9 +20,10 @@
 {
     <div class="menu-overlay slide-down">
         <nav class="overlay-nav">
+            <a class="overlay-menu-item" href="/about-us" @onclick="CloseMenu">About Us</a>
             <a class="overlay-menu-item" href="/timetable" @onclick="CloseMenu">Timetable</a>
-            <a class="overlay-menu-item" href="/findus" @onclick="CloseMenu">Find Us</a>
-            <a class="overlay-menu-item" href="/contactus" @onclick="CloseMenu">Contact Us</a>
+            <a class="overlay-menu-item" href="/find-us" @onclick="CloseMenu">Find Us</a>
+            <a class="overlay-menu-item" href="/contact-us" @onclick="CloseMenu">Contact Us</a>
         </nav>
     </div>
 }

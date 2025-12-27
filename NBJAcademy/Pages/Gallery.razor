@@ -1,0 +1,143 @@
+﻿@page "/Gallery"
+
+@* @inject IJSRuntime JS *@
+
+<PageTitle>Gallery</PageTitle>
+
+<HeadContent>
+    <meta name="description" content="View photos from NBJ Academy - our team, kids classes, adult training sessions, and facilities. See what makes our Brazilian Jiu Jitsu academy special." />
+
+    <meta property="og:title" content="Gallery - NBJ Academy" />
+    <meta property="og:description" content="Browse photos of NBJ Academy's team, classes, and facilities. Experience our family-focused Brazilian Jiu Jitsu environment." />
+    <meta property="og:image" content="https://nbjacademy.com/images/nbjlogotransparant.png" />
+    <meta property="og:url" content="https://nbjacademy.com/gallery" />
+
+    <meta name="twitter:title" content="Gallery - NBJ Academy" />
+    <meta name="twitter:description" content="See photos from NBJ Academy - our team, kids and adult classes, and training facilities in Perth." />
+    <meta name="twitter:image" content="https://nbjacademy.com/images/nbjlogotransparant.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+</HeadContent>
+
+<div class="page-background"/>
+
+<div class="gallery-container">
+    <h2 class="gallery-title">Our Academy</h2>
+
+    <div class="image-gallery">
+        @foreach (var image in galleryImages)
+        {
+            <div class="gallery-item" @onclick="() => OpenLightbox(image)">
+                <img src="@image.Path" alt="@image.Alt" loading="lazy" />
+            </div>
+        }
+    </div>
+</div>
+
+@if (showLightbox)
+{
+    <div class="lightbox" @onclick="CloseLightbox">
+        <button class="lightbox-close" @onclick="CloseLightbox">&times;</button>
+        <button class="lightbox-prev" @onclick="PreviousImage" @onclick:stopPropagation="true">&#8249;</button>
+        <img src="@currentImage.Path" alt="@currentImage.Alt" @onclick:stopPropagation="true" />
+        <button class="lightbox-next" @onclick="NextImage" @onclick:stopPropagation="true">&#8250;</button>
+    </div>
+}
+
+@code {
+    private bool showLightbox = false;
+    private GalleryImage currentImage = new(string.Empty, string.Empty);
+    private int currentIndex = 0;
+    private List<GalleryImage> galleryImages = new();
+
+    protected override void OnInitialized()
+    {
+        LoadGalleryImages();
+    }
+
+    private void LoadGalleryImages()
+    {
+        var categories = new Dictionary<string, (string DisplayName, int Count)>
+        {
+            { "team", ("Team Photo", 3) },
+            { "kids", ("Kids Class", 16) },
+            { "adults", ("Adult Training", 3) },
+            { "facilities", ("Facility", 9) }
+        };
+
+        foreach (var category in categories)
+        {
+            for (int i = 1; i <= category.Value.Count; i++)
+            {
+                galleryImages.Add(new GalleryImage(
+                    $"images/gallery/{category.Key}/{category.Key}-{i}.jpeg",
+                    $"{category.Value.DisplayName} {i}"
+                ));
+            }
+        }
+    }
+
+    private List<GalleryImage> GetImagesForCategory(string folder, string altPrefix)
+    {
+        var images = new List<GalleryImage>();
+        var basePath = $"images/gallery/{folder}";
+
+        // Define your image files per category
+        var imageFiles = folder switch
+        {
+            "team" => new[] { "team.jpeg" },
+            "kids" => new[]
+            {
+                "kids.jpeg", "kids (2).jpeg", "kids (3).jpeg", "kids (4).jpeg",
+                "kids (5).jpeg", "kids (6).jpeg", "kids (7).jpeg", "kids (8).jpeg",
+                "kids (9).jpeg", "kids (10).jpeg", "kids (11).jpeg", "kids (12).jpeg",
+                "kids (13).jpeg", "kids (14).jpeg", "kids (15).jpeg", "kids (16).jpeg"
+            },
+            "adults" => new[] { "adults.jpeg", "adults (2).jpeg", "adults (3).jpeg" },
+            "facilities" => new[]
+            {
+                "facilities.jpeg", "facilities (2).jpeg", "facilities (3).jpeg",
+                "facilities (4).jpeg", "facilities (5).jpeg", "facilities (6).jpeg",
+                "facilities (7).jpeg", "facilities (8).jpeg", "facilities (9).jpeg"
+            },
+            _ => Array.Empty<string>()
+        };
+
+        for (int i = 0; i < imageFiles.Length; i++)
+        {
+            images.Add(new GalleryImage(
+                $"{basePath}/{imageFiles[i]}",
+                $"{altPrefix} {i + 1}"
+            ));
+        }
+
+        return images;
+    }
+
+
+
+    private void OpenLightbox(GalleryImage image)
+    {
+        currentIndex = galleryImages.IndexOf(image);
+        currentImage = image;
+        showLightbox = true;
+    }
+
+    private void CloseLightbox()
+    {
+        showLightbox = false;
+    }
+
+    private void NextImage()
+    {
+        currentIndex = (currentIndex + 1) % galleryImages.Count;
+        currentImage = galleryImages[currentIndex];
+    }
+
+    private void PreviousImage()
+    {
+        currentIndex = currentIndex == 0 ? galleryImages.Count - 1 : currentIndex - 1;
+        currentImage = galleryImages[currentIndex];
+    }
+
+    private record GalleryImage(string Path, string Alt);
+}

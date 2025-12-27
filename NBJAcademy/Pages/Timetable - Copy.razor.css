@@ -1,0 +1,164 @@
+.timetable-container {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    max-width: 800px;
+    width: 100%;
+    margin: 3rem auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-sizing: border-box;
+}
+
+/*
+.timetable-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.timetable-table-wrapper {
+    background: #1A1A1A;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    overflow-x: auto;
+}*/
+
+.timetable-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: var(--color-primary);
+}
+
+    /* Header gradient — using lighter/darker versions of primary */
+    .timetable-table thead {
+        background: var(--color-primary);
+        color: var(--color-secondary);
+    }
+
+        .timetable-table thead th {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: none;
+        }
+
+            .timetable-table thead th:first-child {
+                border-top-left-radius: 12px;
+            }
+
+            .timetable-table thead th:last-child {
+                border-top-right-radius: 12px;
+            }
+
+    .timetable-table tbody tr {
+        transition: all 0.2s ease;
+    }
+        .timetable-table tbody tr:nth-child(4n-3),
+        .timetable-table tbody tr:nth-child(4n-2) {
+            background: var(--color-secondary); 
+        }
+
+        .timetable-table tbody tr:nth-child(4n-1),
+        .timetable-table tbody tr:nth-child(4n) {
+            background: var(--color-secondary);
+        }
+
+    .timetable-table tbody td {
+        padding: 1rem 1.5rem;
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+.day-cell {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    vertical-align: middle;
+    border-right: 3px solid var(--color-primary);
+}
+
+.class-type {
+    font-weight: 500;
+    position: relative;
+    padding-left: 2rem;
+}
+
+    .class-type::before {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .class-type.kids::before {
+        background: var(--accent-2);
+        box-shadow: 0 0 8px var(--accent-2);
+    }
+
+    .class-type.adults::before {
+        background: var(--accent-1);
+        box-shadow: 0 0 8px var(--accent-1);
+    }
+
+    .class-type.warriors::before {
+        background: var(--accent-3);
+        box-shadow: 0 0 8px var(--accent-3);
+    }
+
+.age-badge {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.time-cell {
+    font-size: 1rem;
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .timetable-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .timetable-table-wrapper {
+        padding: 1rem;
+    }
+
+    .timetable-table thead th,
+    .timetable-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .day-cell {
+        font-size: 1rem;
+    }
+
+    .class-type {
+        padding-left: 0;
+    }
+
+        .class-type::before {
+            display: none; /* remove the dot on small screens */
+            content: none;
+        }
+
+    .time-cell {
+        font-size: 0.85rem;
+    }
+}
