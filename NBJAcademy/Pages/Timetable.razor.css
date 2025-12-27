@@ -33,12 +33,13 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
     /* Header gradient — using lighter/darker versions of primary */
     .timetable-table thead {
-        background: var(--color-ba)
+        background: var(--color-primary);
+        color: var(--color-secondary);
     }
 
         .timetable-table thead th {
@@ -62,32 +63,27 @@
     .timetable-table tbody tr {
         transition: all 0.2s ease;
     }
-
-        .timetable-table tbody tr:hover {
-            background: var(--color-background);
-        }
-
         .timetable-table tbody tr:nth-child(4n-3),
         .timetable-table tbody tr:nth-child(4n-2) {
-            background: #80807a; /* slightly darker than --color-background */
+            background: var(--color-secondary); 
         }
 
         .timetable-table tbody tr:nth-child(4n-1),
         .timetable-table tbody tr:nth-child(4n) {
-            background: #6f706a; /* slightly darker band */
+            background: var(--color-secondary);
         }
 
     .timetable-table tbody td {
         padding: 1rem 1.5rem;
-        border-bottom: 1px solid var(--color-secondary);
+        border-bottom: 2px solid var(--color-primary);
     }
 
 .day-cell {
     font-weight: 600;
     font-size: 1.2rem;
-    color: var(--accent-1);
+    color: var(--color-primary);
     vertical-align: middle;
-    border-right: 3px solid var(--accent-1);
+    border-right: 3px solid var(--color-primary);
 }
 
 .class-type {
@@ -129,9 +125,8 @@
 }
 
 .time-cell {
-    font-family: 'Courier New', monospace;
     font-size: 1rem;
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
